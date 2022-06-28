@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <act_window id="patients_action"
+                name="Patients"
+                res_model="medical.patient"
+                view_mode="tree,form"/>
+
+        <act_window id="appointment_action"
+                name="Appointments"
+                res_model="medical.appointment"
+                view_mode="tree,form"/>
+
+        <act_window id="pathology_category_action"
+                name="Pathology Categories"
+                res_model="medical.pathology.category"
+                view_mode="tree,form"/>
+
+        <act_window id="pathology_action"
+                name="Pathology"
+                res_model="medical.pathology"
+                view_mode="tree,form"/>
+
+        <act_window id="pathology_group_action"
+                name="Pathology Group"
+                res_model="medical.pathology.group"
+                view_mode="tree,form"/>
+
+        <act_window id="disease_action"
+                name="Disease"
+                res_model="medical.patient.disease"
+                view_mode="tree,form"/>
+
+        <act_window id="evluation_action"
+                name="Patient Evaluation"
+                res_model="medical.patient.evaluation"
+                view_mode="tree,form"/>
+
+        <act_window id="physicians_action"
+                name="Doctors"
+                res_model="medical.physician"
+                view_mode="tree,form"/>
+
+
+        <menuitem id="main_menu_patient_management"
+         name="Patient Management"/>
+                
+        <menuitem id="menu_appointment" name="Appointments"
+         parent="main_menu_patient_management"
+         action="appointment_action"
+         sequence="2"/>
+                
+        <menuitem id="menu_patients" name='Patients'
+         parent="main_menu_patient_management" 
+         action="patients_action"
+         sequence="1"/>
+                
+        <menuitem id="menu_physicians" name="Doctors"
+         parent="main_menu_patient_management"
+         action="physicians_action"/>
+
+        <menuitem id="menu_evaluation" name="Evaluation"
+         parent="main_menu_patient_management"
+         action="evluation_action"
+         sequence="4"/>
+
+        <menuitem id="menu_disease" name="Disease"
+         parent="main_menu_patient_management"
+         action="disease_action"
+         sequence="3"/>
+
+        <menuitem id="menu_pathology_group" name="Pathology Group"
+         parent="main_menu_patient_management"
+         action="pathology_group_action"/>
+
+        <menuitem id="menu_pathology" name="Pathology"
+         parent="main_menu_patient_management"
+         action="pathology_action"/>
+
+        <menuitem id="menu_pathology_category" name="Pathology category"
+         parent="main_menu_patient_management"
+         action="pathology_category_action"/>
+        
+        <menuitem name="Configuration" id="main_menu_configuration"
+         parent = "main_menu_patient_management"/>
+            
+</odoo>

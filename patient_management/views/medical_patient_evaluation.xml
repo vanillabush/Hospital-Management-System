@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="medical_patient_evaluation_form_view" model="ir.ui.view">
+            <field name="name">medical.patient.evaluation.form.view</field>
+            <field name="model">medical.patient.evaluation</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    <sheet>
+                        <notebook>
+                            <page string="Main Info">
+                                <group>
+                                    <group>
+                                        <field name="medical_patient_id"
+                                            string="Patient" />
+                                        <field name="start_evaluation"
+                                            required="1" />
+                                        <field name="chief_complaint"
+                                            required="1" />
+                                    </group>
+                                    <group>
+                                        <field name="evaluation_type" />
+                                        <field name="end_evaluation" />
+                                        <field name="physician_partner_id" />
+                                    </group>
+                                </group>
+                                <group string="Evaluation Summary">
+                                    <field name="evaluation_summary"
+                                        nolabel="1" />
+                                </group>
+                            </page>
+                            <page string="Signs">
+                                <group string="Vital Signs">
+                                    
+                                    <group>
+                                        <field name="systolic" />
+                                        <field name="bpm" />
+                                        <field name="osat" />
+                                    </group>
+                                </group>
+                                <group string="Nutrition">
+                                    <group>
+                                        <field name="malnutrition" />
+                                    </group>
+                                    <group>
+                                        <field name="dehydration" />
+                                    </group>
+                                </group>
+                                <group string="Anthropometry">
+                                    <group>
+                                        <field name="weight" />
+                                        <field name="abdominal_circ" />
+                                        <field name="bmi" />
+                                    </group>
+                                    <group>
+                                        <field name="height" />
+                                        <field name="head_circumference" />
+                                    </group>
+                                </group>                              
+                                
+                            </page>                         
+                            <page string="Mental Status">
+                                <group string="Glasgow Coma Scale">
+                                    <group>
+                                        <field name="loc" />
+                                        <field name="loc_verbal" />
+                                    </group>
+                                    <group>
+                                        <field name="loc_eyes" />
+                                        <field name="loc_motor" />
+                                    </group>
+                                </group>
+                                <group
+                                    string="Mental Assessment and Impairments">
+                                    <group>
+                                        <field name="mood" />
+                                        <field name="orientation" />
+                                        
+                                    </group>
+                                    <group>
+                                        <field name="violent" />
+                                        <field name="memory" />
+                                        <field name="judgment" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Diagnosis">
+                                
+                                <group>
+                                    <group>
+                                        
+                                        <field name="medical_appointment_date_id" />
+                                        
+                                    </group>
+                                    <group>
+                                        <field name="next_appointment_id"
+                                            domain="[('patient_id', '=', medical_patient_id)]" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="medical_patient_evaluation_tree_view" model="ir.ui.view">
+            <field name="name">medical.patient.evaluation.tree.view</field>
+            <field name="model">medical.patient.evaluation</field>
+            <field name="arch" type="xml">
+                <tree string="Evaluations">
+                    <field name="medical_patient_id" string="Patient" />
+                    <field name="end_evaluation" />
+                    <field name="start_evaluation" />
+                    <field name="physician_partner_id" />
+                    <field name="chief_complaint" />
+                    <field name="bmi" />
+                    <field name="next_appointment_id" />
+                </tree>
+            </field>
+        </record>
+
+</odoo>

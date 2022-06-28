@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="medical_physician_form_view" model="ir.ui.view">
+            <field name="name">medical.physician.form.view</field>
+            <field name="model">medical.physician</field>
+            <field name="arch" type="xml">
+                <form string="Physician">
+                    <notebook>
+                        <page string="Main Info">
+                            <group colspan="4" col="4">
+                                <field name="name" required="1"/>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="doc_ref" />
+                            </group>
+                        </page>
+                        <page string="Extra Info">
+                            <field name="info" />
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="medical_physician_search_view" model="ir.ui.view">
+            <field name="name">medical.physician.search.view</field>
+            <field name="model">medical.physician</field>
+            <field name="arch" type="xml">
+                <search string="Search Physician">
+                    <separator orientation="vertical" />
+                    <field name="doc_ref" select="1" />
+                    <newline />                    
+                    <group expand="1" string="Group By">
+                        <filter string="Doctor" name='by_user'/>
+                        <filter string="Institution" name='by_institution'/>
+                    </group> 
+                </search>
+            </field>
+        </record>
+
+        <record id="medical_physician_tree_view" model="ir.ui.view">
+            <field name="name">medical.physician.tree.view</field>
+            <field name="model">medical.physician</field>
+            <field name="arch" type="xml">
+                <tree string="Physician Information">
+                    <field name="doc_ref" />
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_medical_physician" model="ir.actions.act_window">
+            <field name="name">Physicians</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">medical.physician</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

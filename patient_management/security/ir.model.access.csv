@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_medical_pathology_user,access.medical.pathology.user,model_medical_pathology,base.group_user,1,1,1,1
+access_medical_pathology_group,access.medical.pathology.group,model_medical_pathology_group,base.group_user,1,1,1,1
+access_medical_pathology_group_member,access.medical.pathology.group.member,model_medical_pathology_group_member,base.group_user,1,1,1,1
+
+
+access_medical_appointment_user,access.medical.appointment.user,model_medical_appointment,base.group_user,1,1,1,0
+access_medical_patient_user,access.medical.patient.user,model_medical_patient,base.group_user,1,1,1,0
+access_medical_physician_user,access.medical.physician.user,model_medical_physician,base.group_user,1,1,1,0
+access_medical_patient_evaluation_user,access.medical.patient.evaluation.user,model_medical_patient_evaluation,base.group_user,1,1,1,0
+access_medical_patient_disease_user,access.medical.patient.disease.user,model_medical_patient_disease,base.group_user,1,1,1,0

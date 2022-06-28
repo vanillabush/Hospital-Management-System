@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="medical_appointment_view" model="ir.ui.view">
+        <field name="name">medical.appointment.form.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_left" style="width: 500px;">
+                        <div class="oe_title" style="width: 390px;">
+                            <label class="oe_edit_only" for="name"
+                                    string="Appointment #" />
+                                <h1>
+                                    <field name="name" class="oe_inline" />
+                                    <field name="appointment_type"/>
+                                    <field name="appointment_date"/>
+                                    <field name="appointment_end"/>
+                                    <field name="doctor_id"/>
+                                </h1>
+                                <label for="patient_id" class="oe_edit_only" />
+                                <field name="patient_id"
+                                    context="{'appointment_id': 'appointment'}"
+                                    options="{&quot;always_reload&quot;: 1}" />
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doctor_id" />
+                            <field name="appointment_date" />
+                            <field name="appointment_end" />
+                            <field name="appointment_type" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comments">
+                            <group>
+                                <field name="notes"
+                                    nolabel="1" class="oe_inline"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+        
+    </record>
+
+</odoo>

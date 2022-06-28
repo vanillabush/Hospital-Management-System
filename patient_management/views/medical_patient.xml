@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="medical_patients_form_view" model="ir.ui.view">
+            <field name="name">medical.patients.form.view</field>
+            <field name="model">medical.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    
+                    <sheet>
+                        <div>
+                            <div>
+                                <label for="patient_ref"/>
+                            </div>
+                            <h2>
+                                <field name="patient_ref"/>
+                            </h2>
+                        </div>
+                        <field name="photo" nolabel="1"
+                            class="oe_left oe_avatar" img_width="120"
+                            img_height="120" width="120" height="120"
+                            widget="image" />
+                        <div class="oe_title">
+                            <div>
+                                <label for="name" />
+                            </div>
+                            <h1>
+                                <field style="width: 30%%" name="name"
+                                    default_focus="1" placeholder="Patient Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="first_name" />
+                                <field name="last_name" />
+                                <field name="date_of_birth" />
+                                <field name="marital_status" />
+                                
+                            </group>
+                            <group>
+                                <field name="sex" />
+                                <field name="age" readonly="1" />
+                                <field name="deceased"/>
+                                <field name="patient_address" />
+                                <field name="country"/>
+                            </group>
+                        </group>
+                        <group>
+                            <separator colspan="4"
+                                string="Patient Critical Information" />
+                            <newline />
+                            <field colspan="6" name="critical_info"
+                                nolabel="1" />
+                        </group>
+                        <notebook>
+                            <page string="General Information">
+                                <group string="Patient General Information">
+    
+                                    <group>
+                                        
+                                        <field
+                                            name="primary_care_physician_id" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Diseases">
+                                <field name="patient_disease_ids"
+                                    nolabel="1" widget="one2many_list" />
+                            </page>  
+                        </notebook>  
+                    </sheet>                       
+                </form>
+
+            </field>
+        </record>
+
+        <record id="medical_patients_tree_view" model="ir.ui.view">
+            <field name="name">medical.patients.tree.view</field>
+            <field name="model">medical.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Information">
+                    <field name="patient_ref"/>
+                    <field name="name" />
+                    <field name="sex" />
+                    <field name="date_of_birth" />
+                    <field name="primary_care_physician_id" />
+                    <field name="deceased" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_medical_patient" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">medical.patient</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+</odoo>
